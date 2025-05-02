@@ -26,12 +26,12 @@ jobs:
       - name: Run Script
         run: python generate_calendar.py
 
-            - name: Commit and Push
+      - name: Commit and Push
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
           git pull origin main
-          [ -f restoration_calendar.ics ] && git add restoration_calendar.ics || echo "No .ics file to add"
+          "[ -f restoration_calendar.ics ] && git add restoration_calendar.ics || echo 'No .ics file to add'"
           git commit -m 'Auto-update calendar [bot]' || echo "No changes to commit"
           git push
 
